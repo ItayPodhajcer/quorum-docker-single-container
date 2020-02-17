@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  quorum:
+    container_name: quorum
+    image: quorumengineering/quorum
+    volumes:
+      - ./start.sh:/start.sh
+      - ./datadir/genesis.json:/qdata/dd/genesis.json
+      - ./datadir/nodekey:/qdata/dd/nodekey
+      - ./datadir/static-nodes.json:/qdata/dd/static-nodes.json
+    entrypoint: /start.sh
+    ports: 
+      - 8545:8545
+      - 8546:8546
+      - 30303:30303
+      - 30303:30303/udp
+      - 50400:50400
+    environment:
+      - PRIVATE_CONFIG=ignore
+      - QUORUM_CONSENSUS=raft
+    restart: always
