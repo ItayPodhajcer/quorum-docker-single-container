@@ -9,4 +9,4 @@ else
     echo "Quorum already initialized, skipping..."
 fi
 
-geth --datadir /qdata/dd --nodiscover --verbosity 6 --raft --raftport 50400 --rpc --rpcaddr 0.0.0.0 --rpcvhosts=* --rpcapi admin,db,eth,debug,miner,net,shh,txpool,personal,web3,quorum,raft --emitcheckpoints --port 30303
+geth --datadir /qdata/dd --nodiscover --verbosity 6 --raft --raftport 50400 --rpc --rpcaddr 0.0.0.0 --rpcvhosts=* --rpcapi admin,db,eth,debug,miner,net,shh,txpool,personal,web3,quorum,raft --emitcheckpoints --port 30303 --allow-insecure-unlock
